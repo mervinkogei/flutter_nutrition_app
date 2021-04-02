@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nutrition_app/details_page.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -102,6 +103,62 @@ class _HomePageState extends State<HomePage> {
                       ],
                     ),
                   ),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Container(
+                      height: 65.0,
+                      width: 80.0,
+                      decoration: BoxDecoration(
+                        border: Border.all(
+                          color: Colors.grey,
+                          style: BorderStyle.solid,
+                          width: 1.0,
+                        ),
+                        borderRadius: BorderRadius.circular(10.0),
+                        color: Colors.lightBlue,
+                      ),
+                      child: Center(
+                        child: Icon(Icons.search, color: Colors.white,),
+                      ),
+                    ),
+                    Container(
+                      height: 65.0,
+                      width: 80.0,
+                      decoration: BoxDecoration(
+                        border: Border.all(
+                          color: Colors.grey,
+                          style: BorderStyle.solid,
+                          width: 1.0,
+                        ),
+                        borderRadius: BorderRadius.circular(10.0),
+                         color: Colors.lightBlue,
+                      ),
+                      child: Center(
+                        child: Icon(Icons.shopping_basket_rounded, color: Colors.white,),
+                      ),
+                    ),
+                    Container(
+                      height: 65.0,
+                      width: 100.0,
+                      decoration: BoxDecoration(
+                        border: Border.all(
+                          color: Colors.grey,
+                          style: BorderStyle.solid,
+                          width: 1.0
+                        ),
+                        borderRadius: BorderRadius.circular(10.0),
+                        color: Colors.lightBlue,
+                      ),
+                      child: Center(
+                        child: Text('Checkout', style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 15.0,
+                        ),),
+                      ),
+                    )
+                  ],
                 )
               ],
             ),
@@ -111,11 +168,12 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-    Widget _buildFoodItem(String imgPath, String foodName, String price) {
+    Widget _buildFoodItem(String imgPath, String foodName, String foodPrice) {
       return Padding(
         padding: EdgeInsets.only(left: 10.0, top: 10.0, right: 10.0),
         child: InkWell(
-          onTap: () {},
+          onTap: () => Navigator.of(context).push(
+            MaterialPageRoute(builder: (context)=>DetailsPage(heroTag: imgPath,foodName: foodName, foodPrice: foodPrice,))),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -136,7 +194,8 @@ class _HomePageState extends State<HomePage> {
                             fontWeight: FontWeight.bold,
                           ),
                           ),
-                          Text(price, style: TextStyle(
+                          Padding(padding: EdgeInsets.only(left: 10.0)),
+                          Text(foodPrice, style: TextStyle(
                             fontSize: 15.0,
                             fontWeight: FontWeight.bold,
                             color: Colors.grey,
