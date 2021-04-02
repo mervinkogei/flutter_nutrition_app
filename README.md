@@ -2,6 +2,10 @@
 
 A new Flutter project.
 
+# Demo Screen shoots
+![landing page](https://github.com/mervinkogei/flutter_nutrition_app/blob/dev/images/nutrition_landing.jpeg)
+
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
